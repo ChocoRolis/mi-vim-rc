@@ -10,28 +10,30 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'valloric/youcompleteme'
+" Plugin 'valloric/youcompleteme'
 Plugin 'w0rp/ale'
-Plugin 'vimwiki/vimwiki'
+" Plugin 'vimwiki/vimwiki'
 Plugin 'mattn/emmet-vim'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'tpope/vim-obsession'
+" Plugin 'dhruvasagar/vim-prosession'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'embark-theme/vim', {'name': 'embark'}
+" Plugin 'embark-theme/vim', {'name': 'embark'}
 
 Plugin 'bfrg/vim-cpp-modern'
 Plugin 'shmup/vim-sql-syntax'
 Plugin 'hdima/python-syntax'
-Plugin 'xolox/vim-lua-ftplugin'
-Plugin 'xolox/vim-misc'
-Plugin 'rust-lang/rust.vim'
-Plugin 'cognoscan/vim-vhdl'
+" Plugin 'xolox/vim-lua-ftplugin'
+" Plugin 'xolox/vim-misc'
+" Plugin 'rust-lang/rust.vim'
+" Plugin 'cognoscan/vim-vhdl'
 
 
 " vimwiki config
-let g:vimwiki_list = [{'path': '~/Documentos/vimwiki/',
+" let g:vimwiki_list = [{'path': '~/Documentos/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': 'md'}]
 " let g:vimwiki_global_ext = 0
 
@@ -44,7 +46,7 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " airline themes config
-let g:airline_theme='embark'
+let g:airline_theme='simple'
 
 " emmet
 let g:user_emmet_leader_key=','
@@ -85,12 +87,12 @@ syntax on
 set path+=**
 set wildmenu
 set showcmd
-set termguicolors
+" set termguicolors
 set mouse=a
 
 inoremap <c-s> <Esc>:Lex<cr>:vertical resize 30<cr>
 nnoremap <c-s> <Esc>:Lex<cr>:vertical resize 30<cr>
-colorscheme embark
+" colorscheme embark
 
 " Enhanced F2 mapping for C++ competitive programming
 nnoremap <F2> :w <bar>
