@@ -1,30 +1,36 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+" Plug 'valloric/youcompleteme'
+Plug 'ervandew/supertab'
+Plug 'w0rp/ale'
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/emmet-vim'
+Plug 'myusuf3/numbers.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jiangmiao/auto-pairs'
 
-Plugin 'valloric/youcompleteme'
-Plugin 'w0rp/ale'
-Plugin 'vimwiki/vimwiki'
-Plugin 'mattn/emmet-vim'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'bluz71/vim-moonfly-colors', { 'as': 'moonfly' }
+Plug 'bfrg/vim-cpp-modern'
+Plug 'shmup/vim-sql-syntax'
+Plug 'hdima/python-syntax'
+" Plug 'xolox/vim-lua-ftplugin'
+Plug 'xolox/vim-misc'
+" Plug 'lervag/vimtex', { 'tag': 'v2.17' }
+" Plug 'rust-lang/rust.vim'
 
-Plugin 'bfrg/vim-cpp-modern'
-Plugin 'shmup/vim-sql-syntax'
-Plugin 'hdima/python-syntax'
-" Plugin 'xolox/vim-lua-ftplugin'
-Plugin 'xolox/vim-misc'
-" Plugin 'rust-lang/rust.vim'
+call plug#end()
+" plug#end() already enables filetype plugin indent and syntax on
 
+" Brief help
+" :PlugInstall  - installs plugins
+" :PlugUpdate   - updates plugins
+" :PlugClean    - removes plugins no longer listed
+" :PlugStatus   - shows plugin status
 
 " vimwiki config
 let g:vimwiki_list = [{'path': '~/Documentos/vimwiki/',
@@ -45,18 +51,6 @@ let g:airline_theme='moonfly'
 " emmet
 let g:user_emmet_leader_key=','
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-filetype plugin on
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-
-" Put your non-Plugin stuff after this line
 
 syntax on
 set path+=**
@@ -68,7 +62,9 @@ inoremap <c-s> <Esc>:Lex<cr>:vertical resize 30<cr>
 nnoremap <c-s> <Esc>:Lex<cr>:vertical resize 30<cr>
 colorscheme moonfly
 
-autocmd filetype cpp nnoremap <F2> :w <bar> !g++ -std=c++17 -O2 -Wall % -o %:r && ./%:r <CR>
+packadd comment
+
+autocmd filetype cpp nnoremap <F2> :w <bar> !g++ -std=c++17 -O2 % -o %:r && ./%:r <CR>
 autocmd filetype c nnoremap <F4> :w <bar> !clang -lm -O2 -Wall -Wextra % -o %:r && ./%:r <CR>
-autocmd filetype cpp nnoremap <F5> i#include <bits/stdc++.h><CR>#define f(i,a,b) for(int i = (a); i < (b); ++i)<CR>#define rf(i,a,b) for(int i = (a); i >= (b); --i)<CR>#define all(x) x.begin(), x.end()<CR>#define ll long long<CR>#define vi vector<int><CR>#define vs vector<string><CR>#define pb push_back<CR>#define yes() cout << "YES\n"<CR>#define no() cout << "NO\n"<CR><CR>using namespace std;<CR><CR>void solve()<CR>{<CR><CR>}<CR><CR>int main()<CR>{<CR><Tab>ios_base::sync_with_stdio(false);<CR><Tab>cin.tie(NULL);<CR><CR><Tab>int T;<CR><Tab>cin >> T;<CR><Tab><CR><Tab>while (T--)<CR><Tab>{<CR><Tab><Tab>solve();<CR><Tab>}<CR>}<Esc>
+autocmd filetype cpp nnoremap <F5> :set paste<CR>i#include <bits/stdc++.h><CR>#define f(i,a,b) for(int i = (a); i < (b); ++i)<CR>#define rf(i,a,b) for(int i = (a); i >= (b); --i)<CR>#define all(x) x.begin(), x.end()<CR>#define ll long long<CR>#define vi vector<int><CR>#define vs vector<string><CR>#define pb push_back<CR>#define yes() cout << "YES\n"<CR>#define no() cout << "NO\n"<CR><CR>using namespace std;<CR><CR>void solve()<CR>{<CR><CR>}<CR><CR>int main()<CR>{<CR><Tab>ios_base::sync_with_stdio(false);<CR><Tab>cin.tie(NULL);<CR><CR><Tab>int T;<CR><Tab>cin >> T;<CR><Tab><CR><Tab>while (T--)<CR><Tab>{<CR><Tab><Tab>solve();<CR><Tab>}<CR>}<Esc>:set nopaste<CR>/void solve()<CR>jj0i<Tab>
 nnoremap <F3> :find 
